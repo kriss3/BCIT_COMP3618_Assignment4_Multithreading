@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.txtBoxPi = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.bgw = new System.ComponentModel.BackgroundWorker();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBar
@@ -45,12 +46,17 @@
             this.progressBar.Size = new System.Drawing.Size(492, 23);
             this.progressBar.TabIndex = 0;
             // 
-            // numericUpDown1
+            // numUpDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(98, 13);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(82, 22);
-            this.numericUpDown1.TabIndex = 1;
+            this.numUpDown.Location = new System.Drawing.Point(98, 13);
+            this.numUpDown.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numUpDown.Name = "numUpDown";
+            this.numUpDown.Size = new System.Drawing.Size(82, 22);
+            this.numUpDown.TabIndex = 1;
             // 
             // label1
             // 
@@ -65,10 +71,11 @@
             // 
             this.btnCalculate.Location = new System.Drawing.Point(202, 8);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(75, 30);
+            this.btnCalculate.Size = new System.Drawing.Size(91, 30);
             this.btnCalculate.TabIndex = 3;
             this.btnCalculate.Text = "&Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // txtBoxPi
             // 
@@ -86,7 +93,7 @@
             this.Controls.Add(this.txtBoxPi);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numUpDown);
             this.Controls.Add(this.progressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -94,7 +101,7 @@
             this.Name = "frmCalculatePi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BCIT COMP 3618 Assignment 4 - Krzysztof Szczurowski";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,10 +110,11 @@
         #endregion
 
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numUpDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.TextBox txtBoxPi;
+        private System.ComponentModel.BackgroundWorker bgw;
     }
 }
 
