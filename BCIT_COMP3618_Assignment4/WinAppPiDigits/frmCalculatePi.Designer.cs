@@ -38,10 +38,11 @@
             // 
             // progressBar
             // 
-            this.progressBar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.progressBar.Location = new System.Drawing.Point(1, 366);
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar.Location = new System.Drawing.Point(12, 366);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(567, 23);
+            this.progressBar.Size = new System.Drawing.Size(492, 23);
             this.progressBar.TabIndex = 0;
             // 
             // numericUpDown1
@@ -74,19 +75,22 @@
             this.txtBoxPi.Location = new System.Drawing.Point(12, 44);
             this.txtBoxPi.Multiline = true;
             this.txtBoxPi.Name = "txtBoxPi";
-            this.txtBoxPi.Size = new System.Drawing.Size(543, 316);
+            this.txtBoxPi.Size = new System.Drawing.Size(492, 316);
             this.txtBoxPi.TabIndex = 4;
             // 
             // frmCalculatePi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 390);
+            this.ClientSize = new System.Drawing.Size(516, 390);
             this.Controls.Add(this.txtBoxPi);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.progressBar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCalculatePi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BCIT COMP 3618 Assignment 4 - Krzysztof Szczurowski";
