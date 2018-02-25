@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinAppPiDigits
 {
-    public partial class Form1 : Form
+    public partial class frmCalculatePi : Form
     {
-        public Form1()
+        public frmCalculatePi()
         {
             InitializeComponent();
         }
