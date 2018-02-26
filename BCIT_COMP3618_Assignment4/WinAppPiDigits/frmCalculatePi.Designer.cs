@@ -41,7 +41,7 @@
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(12, 366);
+            this.progressBar.Location = new System.Drawing.Point(12, 263);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(492, 23);
             this.progressBar.TabIndex = 0;
@@ -57,6 +57,11 @@
             this.numUpDown.Name = "numUpDown";
             this.numUpDown.Size = new System.Drawing.Size(82, 22);
             this.numUpDown.TabIndex = 1;
+            this.numUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label1
             // 
@@ -73,7 +78,7 @@
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(91, 30);
             this.btnCalculate.TabIndex = 3;
-            this.btnCalculate.Text = "&Calculate";
+            this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
@@ -82,14 +87,21 @@
             this.txtBoxPi.Location = new System.Drawing.Point(12, 44);
             this.txtBoxPi.Multiline = true;
             this.txtBoxPi.Name = "txtBoxPi";
-            this.txtBoxPi.Size = new System.Drawing.Size(492, 316);
+            this.txtBoxPi.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBoxPi.Size = new System.Drawing.Size(492, 213);
             this.txtBoxPi.TabIndex = 4;
+            // 
+            // bgw
+            // 
+            this.bgw.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_DoWork);
+            this.bgw.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgw_ProgressChanged);
+            this.bgw.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgw_RunWorkerCompleted);
             // 
             // frmCalculatePi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 390);
+            this.ClientSize = new System.Drawing.Size(516, 287);
             this.Controls.Add(this.txtBoxPi);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.label1);

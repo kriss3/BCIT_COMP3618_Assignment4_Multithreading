@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PiDigitLogic
 {
@@ -12,7 +8,8 @@ namespace PiDigitLogic
         {
             return (int)((a * b) % m);
         }
-        // return the inverse of x mod y     
+
+        // return the inverse of x mod y 
         public static int inv_mod(int x, int y)
         {
             int q = 0;
@@ -21,7 +18,6 @@ namespace PiDigitLogic
             int a = 0;
             int c = 1;
             int t = 0;
-
             do
             {
                 q = v / u;
@@ -39,7 +35,7 @@ namespace PiDigitLogic
             return a;
         }
 
-        // return (a^b) mod m     
+        // return (a^b) mod m 
         public static int pow_mod(int a, int b, int m)
         {
             int r = 1;
@@ -52,11 +48,12 @@ namespace PiDigitLogic
                 if (b == 0)
                     break;
                 aa = mul_mod(aa, aa, m);
-            }
+                }
             return r;
         }
 
-        // return true if n is prime     
+
+        // return true if n is prime 
         public static bool is_prime(int n)
         {
             if ((n % 2) == 0)
@@ -67,24 +64,24 @@ namespace PiDigitLogic
                 if ((n % i) == 0)
                     return false;
             }
-            return true;
+           return true;
         }
 
-        // return the prime number immediately after n     
+        // return the prime number immediately after n 
         public static int next_prime(int n)
         {
             do
             {
                 n++;
             } while (!is_prime(n));
-            return n;
+           return n;
         }
+
         public static int StartingAt(int n)
         {
             int av = 0;
             int vmax = 0;
             int N = (int)((n + 20) * Math.Log(10) / Math.Log(2));
-
             int num = 0;
             int den = 0;
             int kq = 0;
@@ -96,18 +93,19 @@ namespace PiDigitLogic
 
             for (int a = 3; a <= (2 * N); a = next_prime(a))
             {
-                vmax = (int)(Math.Log(2 * N) / Math.Log(a)); av = 1;
-                for (int i = 0; i < vmax; ++i) av = av * a;
-                s = 0;
-                num = 1;
+                vmax = (int)(Math.Log(2 * N) / Math.Log(a));
+                av = 1;
+                for (int i = 0; i < vmax; ++i)
+                    av = av * a;
+                s = 0; num = 1;
                 den = 1;
                 v = 0;
                 kq = 1;
                 kq2 = 1;
-
                 for (int k = 1; k <= N; ++k)
                 {
-                    t = k; if (kq >= a)
+                    t = k;
+                    if (kq >= a)
                     {
                         do
                         {
@@ -115,10 +113,9 @@ namespace PiDigitLogic
                         } while ((t % a) == 0);
                         kq = 0;
                     }
-
-                    ++kq; num = mul_mod(num, t, av);
+                    ++kq;
+                    num = mul_mod(num, t, av);
                     t = (2 * k - 1);
-
                     if (kq2 >= a)
                     {
                         if (kq2 == a)
@@ -131,28 +128,26 @@ namespace PiDigitLogic
                         }
                         kq2 -= a;
                     }
+
                     den = mul_mod(den, t, av);
                     kq2 += 2;
-
                     if (v > 0)
                     {
-                        t = inv_mod(den, av); t = mul_mod(t, num, av);
-                    }
-
-                    t = mul_mod(t, k, av);
-                    for (int i = v; i < vmax; ++i)
-                    {
-                        t = mul_mod(t, a, av);
+                        t = inv_mod(den, av);
+                        t = mul_mod(t, num, av);
+                        t = mul_mod(t, k, av);
+                        for (int i = v; i < vmax; ++i)
+                            t = mul_mod(t, a, av);
                         s += t;
                         if (s >= av)
                             s -= av;
                     }
                 }
-
                 t = pow_mod(10, n - 1, av);
                 s = mul_mod(s, t, av);
                 sum = (sum + (double)s / (double)av) % 1.0;
             }
+
             return (int)(sum * 1e9);
         }
     }
