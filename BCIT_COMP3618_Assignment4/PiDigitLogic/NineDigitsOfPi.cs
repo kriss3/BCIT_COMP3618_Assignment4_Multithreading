@@ -2,6 +2,13 @@
 
 namespace PiDigitLogic
 {
+    /// <summary>
+    /// Krzysztof Szczurowski
+    /// BCIT COMP3619 Assignment 4;
+    /// Third party class that calculates n digits of Pi number 
+    /// exec method: StartingAt(n);
+    /// Repo: https://github.com/kriss3/BCIT_COMP3618_Assignment4_Multithreading.git
+    /// </summary>
     public class NineDigitsOfPi
     {
         public static int mul_mod(long a, long b, int m)
